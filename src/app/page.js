@@ -3,6 +3,8 @@ import Hero from "@/components/home/Hero";
 import LogoCard from "@/components/home/LogoCard";
 import FeaturedCourses from "@/components/home/FeaturedCourses";
 import LearningPaths from "@/components/home/LearningPaths";
+import GrowthAndManagement from "@/components/home/GrowthAndManagement";
+
 
 export default function Home() {
   return (
@@ -13,6 +15,7 @@ export default function Home() {
         <LogoCard />
         <FeaturedCourses />
         <LearningPaths />
+        <GrowthAndManagement />
       </section>
     </main>
   );

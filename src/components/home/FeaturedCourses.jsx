@@ -146,7 +146,6 @@ export default function FeaturedCourses() {
         </div>
 
         {/* Category Filter Pills */}
-        {/* Category Filter Pills */}
         <div className="mt-10 flex flex-wrap items-center justify-center gap-2.5 sm:gap-3">
           {categories.map((cat) => {
             const isActive = activeCategory === cat;
