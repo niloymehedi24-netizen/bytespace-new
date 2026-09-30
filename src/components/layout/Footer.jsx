@@ -22,7 +22,7 @@ export default function Footer() {
 
             <div className="flex flex-col gap-3 text-sm text-white/60">
               <Link href="/courses">Courses</Link>
-              <Link href="/#about">About</Link>
+              <Link href="/about">About</Link>
               <Link href="/login">Sign In</Link>
             </div>
           </div>
