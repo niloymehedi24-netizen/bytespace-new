@@ -4,6 +4,7 @@ import Link from "next/link";
 import { Menu, ShoppingBag, X } from "lucide-react";
 import { useState } from "react";
 import Container from "../common/Container";
+import Image from "next/image";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -15,60 +16,76 @@ export default function Navbar() {
   ];
 
   return (
-    <header className="absolute left-0 top-0 z-50 w-full">
-      <Container>
-        <nav className="flex h-18 items-center justify-between">
-          {/* Logo */}
-          <Link href="/" className="flex items-center gap-2">
-            <span className="relative flex h-5 w-5 items-center justify-center">
-              <span className="absolute left-0 top-0 h-4 w-3 rounded-bl-lg rounded-tr-lg bg-[#CBFC01]" />
-              <span className="absolute bottom-0 right-0 h-2.5 w-2.5 rounded-full bg-[#CBFC01]" />
-            </span>
+    <header className="relative w-full bg-[#123fe5] border-b border-white/10">
+      {/* Background Grid Pattern Lines */}
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff12_1px,transparent_1px)] bg-size-[80px_100%] pointer-events-none" />
 
-            <span className="text-[15px] font-bold tracking-tight text-white">
-              ByteSpace
-            </span>
+      <Container className="relative z-10">
+        <nav className="flex h-20 items-center justify-between">
+          {/* Logo */}
+          <Link href="/" className="flex items-center gap-2.5">
+            <Image
+              src="/images/main-logo.png"
+              alt="ByteSpace"
+              width={12}
+              height={12}
+              className="h-7 w-auto object-contain"
+              onError={(e) => {
+                e.currentTarget.style.display = "none";
+                e.currentTarget.nextElementSibling.style.display = "flex";
+              }}
+            />
+            <div className="hidden items-center gap-2">
+              <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-[#c8ff00]">
+                <svg className="h-5 w-5 fill-black" viewBox="0 0 24 24">
+                  <path d="M8 5v14l11-7z" />
+                </svg>
+              </div>
+              <span className="text-xl font-bold tracking-tight text-white">
+                ByteSpace
+              </span>
+            </div>
           </Link>
 
-          {/* Desktop navigation */}
-          <div className="hidden items-center text-white text-xl gap-8 md:flex">
+          {/* Center Navigation Links */}
+          <div className="hidden items-center text-white gap-10 md:flex">
             {navItems.map((item) => (
               <Link
                 key={item.label}
                 href={item.href}
-                className="text-[11px] font-medium text-white/90 transition hover:text-[#CBFC01]"
+                className="text-sm font-normal text-white/95 transition hover:text-[#c8ff00]"
               >
                 {item.label}
               </Link>
             ))}
           </div>
 
-          {/* Desktop actions */}
-          <div className="hidden items-center text-white text-xl gap-5 md:flex">
+          {/* Right Actions */}
+          <div className="hidden items-center text-white gap-8 md:flex">
             <Link
               href="/login"
-              className="text-[11px] font-medium text-white/90 transition hover:text-[#CBFC01]"
+              className="text-sm font-normal text-white/95 transition hover:text-[#c8ff00]"
             >
               Sign In
             </Link>
 
             <Link
               href="/register"
-              className="text-[11px] font-medium text-white/90 transition hover:text-[#CBFC01]"
+              className="text-sm font-normal text-white/95 transition hover:text-[#c8ff00]"
             >
               Join Us
             </Link>
 
             <button
               type="button"
-              className="text-white transition hover:text-[#CBFC01]"
+              className="text-white transition hover:text-[#c8ff00]"
               aria-label="Shopping bag"
             >
-              <ShoppingBag size={15} strokeWidth={1.5} />
+              <ShoppingBag size={20} strokeWidth={1.8} />
             </button>
           </div>
 
-          {/* Mobile menu button */}
+          {/* Mobile Menu Button */}
           <button
             type="button"
             onClick={() => setIsOpen(!isOpen)}
@@ -79,25 +96,27 @@ export default function Navbar() {
           </button>
         </nav>
 
-        {/* Mobile navigation */}
+        {/* Mobile Navigation Dropdown */}
         {isOpen && (
-          <div className="rounded-2xl bg-white p-5 shadow-2xl md:hidden">
+          <div className="mb-4 rounded-2xl bg-white p-6 shadow-2xl md:hidden">
             <div className="flex flex-col gap-4">
               {navItems.map((item) => (
                 <Link
                   key={item.label}
                   href={item.href}
                   onClick={() => setIsOpen(false)}
-                  className="text-sm font-medium text-black"
+                  className="text-sm font-semibold text-gray-900"
                 >
                   {item.label}
                 </Link>
               ))}
 
+              <hr className="border-gray-100" />
+
               <Link
                 href="/login"
                 onClick={() => setIsOpen(false)}
-                className="text-sm font-medium text-black"
+                className="text-sm font-semibold text-gray-900"
               >
                 Sign In
               </Link>
@@ -105,7 +124,7 @@ export default function Navbar() {
               <Link
                 href="/register"
                 onClick={() => setIsOpen(false)}
-                className="text-sm font-medium text-black"
+                className="text-sm font-semibold text-[#123fe5]"
               >
                 Join Us
               </Link>

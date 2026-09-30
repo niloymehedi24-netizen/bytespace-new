@@ -5,6 +5,8 @@ import FeaturedCourses from "@/components/home/FeaturedCourses";
 import LearningPaths from "@/components/home/LearningPaths";
 import GrowthAndManagement from "@/components/home/GrowthAndManagement";
 import CreatorBanner from "@/components/home/CreatorBanner";
+import Testimonials from "@/components/home/Testimonial";
+import Footer from "@/components/layout/Footer";
 
 
 export default function Home() {
@@ -18,6 +20,8 @@ export default function Home() {
         <LearningPaths />
         <GrowthAndManagement />
         <CreatorBanner />
+        <Testimonials />
+        <Footer />
       </section>
     </main>
   );

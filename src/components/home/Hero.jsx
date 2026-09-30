@@ -1,3 +1,5 @@
+"use client";
+
 import { Search, Star } from "lucide-react";
 import Container from "../common/Container";
 import Image from "next/image";
@@ -37,27 +39,26 @@ export default function Hero() {
           </p>
 
           {/* Search */}
-          <div className="mt-7 flex w-full max-w-107 items-center gap-2">
-            <div className="flex h-10 flex-1 items-center rounded-full bg-white px-4">
-              <Search
-                size={14}
-                className="mr-2 shrink-0 text-gray-400"
-                strokeWidth={1.7}
-              />
-
+          <div className="mx-auto mt-8 max-w-lg">
+            <form
+              onSubmit={(e) => e.preventDefault()}
+              className="relative flex items-center rounded-full bg-white p-1.5 shadow-xl"
+            >
+              <div className="pl-4 text-gray-400">
+                <Search size={18} />
+              </div>
               <input
                 type="text"
                 placeholder="Course, topic, creator"
-                className="w-full bg-transparent text-[10px] text-gray-700 outline-none placeholder:text-gray-400"
+                className="w-full bg-transparent px-3 py-2 text-xs sm:text-sm text-gray-800 placeholder-gray-400 outline-none"
               />
-            </div>
-
-            <button
-              type="button"
-              className="h-10 rounded-full bg-[#c8ff00] px-5 text-[10px] font-semibold text-black transition hover:bg-[#b9f000]"
-            >
-              Search
-            </button>
+              <button
+                type="submit"
+                className="rounded-full bg-[#c8ff00] px-6 py-2.5 text-xs sm:text-sm font-semibold text-black transition hover:bg-[#b5e600]"
+              >
+                Search
+              </button>
+            </form>
           </div>
         </div>
 
