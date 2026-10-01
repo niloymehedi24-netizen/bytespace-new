@@ -5,17 +5,15 @@ import Link from "next/link";
 import { Star } from "lucide-react";
 import Image from "next/image";
 
-export default function RegisterPage() {
+export default function LoginPage() {
   const [formData, setFormData] = useState({
-    fullName: "",
     email: "",
     password: "",
   });
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Handle form submission logic
-    console.log("Form submitted:", formData);
+    console.log("Login submitted:", formData);
   };
 
   return (
@@ -39,12 +37,11 @@ export default function RegisterPage() {
           {/* Left Column: Heading, Subtitle & Course Preview Graphics */}
           <div className="lg:col-span-6 flex flex-col justify-center">
             <h1 className="text-3xl font-extrabold tracking-tight sm:text-4xl lg:text-5xl">
-              Sign up and come in
+              Sign in with ease
             </h1>
             <p className="mt-4 max-w-lg text-xs sm:text-sm text-blue-100/90 leading-relaxed font-normal">
-              The registration process is straightforward, uncomplicated, and
-              efficient, allowing users to sign up quickly, easily, and at no
-              cost.
+              Experience a seamless and efficient sign-in process that grants
+              you instant access to a world of knowledge.
             </p>
 
             {/* Decorative Graphic Stack */}
@@ -54,7 +51,7 @@ export default function RegisterPage() {
                 <div className="h-8 w-8 rounded-full bg-[#123fe5]" />
               </div>
 
-              {/* Background Stacked Card */}
+              {/* Background Stacked Card (Build Digital...) */}
               <div className="absolute -top-6 left-4 right-4 rounded-2xl bg-white/90 p-4 text-black shadow-lg backdrop-blur-md opacity-80 scale-95">
                 <p className="text-xs font-bold text-gray-800">
                   Build Digital...
@@ -64,7 +61,7 @@ export default function RegisterPage() {
                 </p>
               </div>
 
-              {/* Foreground Main Preview Card */}
+              {/* Main Course Preview Card */}
               <div className="relative z-10 rounded-2xl bg-white p-5 text-gray-900 shadow-2xl">
                 {/* Mock Dashboard Banner Image */}
                 <div className="relative h-36 w-full overflow-hidden rounded-xl bg-slate-900 p-3">
@@ -122,16 +119,16 @@ export default function RegisterPage() {
                       <Image
                         className="h-5 w-5 rounded-full border border-white"
                         src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=80&auto=format&fit=crop&q=80"
+                        alt="avatar"
                         width={28}
                         height={28}
-                        alt="avatar"
                       />
                       <Image
                         className="h-5 w-5 rounded-full border border-white"
                         src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&auto=format&fit=crop&q=80"
+                        alt="avatar"
                         width={28}
                         height={28}
-                        alt="avatar"
                       />
                       <div className="flex h-5 w-5 items-center justify-center rounded-full bg-black text-[8px] font-bold text-white">
                         26+
@@ -147,6 +144,16 @@ export default function RegisterPage() {
                 </div>
               </div>
 
+              {/* Yellow Cone / Triangle Shape - Bottom Left */}
+              <div className="absolute -bottom-10 -left-6 z-20 w-16 h-16 pointer-events-none rotate-[-15deg]">
+                <svg
+                  viewBox="0 0 100 100"
+                  className="w-full h-full fill-[#c8ff00]"
+                >
+                  <polygon points="50,10 90,90 10,90" />
+                </svg>
+              </div>
+
               {/* Floating White Squiggle Shape - Mid Right */}
               <div className="absolute -right-8 bottom-12 z-20 h-16 w-16 text-white rotate-12 pointer-events-none drop-shadow-lg">
                 <svg
@@ -157,7 +164,7 @@ export default function RegisterPage() {
                 </svg>
               </div>
 
-              {/* Floating Lime Happy Students Card - Bottom */}
+              {/* Floating Lime Happy Students Card - Bottom Right */}
               <div className="absolute -bottom-10 right-4 z-20 rounded-2xl bg-[#c8ff00] p-3.5 text-black shadow-xl border border-lime-300">
                 <div className="text-[11px] font-bold">Happy Students</div>
                 <div className="text-[10px] font-semibold text-gray-800">
@@ -186,34 +193,17 @@ export default function RegisterPage() {
             </div>
           </div>
 
-          {/* Right Column: Register Form Card */}
+          {/* Right Column: Sign In Form Card */}
           <div className="lg:col-span-6 flex justify-center lg:justify-end">
             <div className="w-full max-w-lg rounded-4xl bg-white p-8 sm:p-12 text-gray-900 shadow-2xl">
               <span className="text-xs font-semibold text-gray-500">
-                Create an Account
+                Sign In
               </span>
               <h2 className="mt-1 text-2xl sm:text-3xl font-extrabold text-gray-900 tracking-tight">
-                Welcome to ByteSpace
+                Welcome Back
               </h2>
 
               <form onSubmit={handleSubmit} className="mt-8 space-y-5">
-                {/* Full Name */}
-                <div>
-                  <label className="block text-xs font-medium text-gray-600 mb-1.5">
-                    Full Name
-                  </label>
-                  <input
-                    type="text"
-                    required
-                    placeholder="Jamie Davis"
-                    value={formData.fullName}
-                    onChange={(e) =>
-                      setFormData({ ...formData, fullName: e.target.value })
-                    }
-                    className="w-full rounded-xl border border-gray-200 bg-white px-4 py-3 text-xs sm:text-sm text-gray-900 outline-none transition placeholder:text-gray-300 focus:border-gray-400 focus:ring-0"
-                  />
-                </div>
-
                 {/* Email */}
                 <div>
                   <label className="block text-xs font-medium text-gray-600 mb-1.5">
@@ -248,22 +238,58 @@ export default function RegisterPage() {
                   />
                 </div>
 
-                {/* Continue Button (Right Aligned) */}
+                {/* Sign In Button (Right Aligned) */}
                 <div className="flex justify-end pt-2">
                   <button
                     type="submit"
                     className="rounded-full bg-[#c8ff00] px-8 py-2.5 text-xs sm:text-sm font-bold text-black transition hover:bg-[#b5e600] shadow-sm"
                   >
-                    Continue
+                    Sign In
                   </button>
                 </div>
               </form>
 
-              {/* Login Link */}
-              <p className="mt-16 text-center text-xs text-gray-500 font-medium">
-                Already have an account?
-                <Link href="/login" className="text-blue-600 hover:underline">
-                  Login
+              {/* "or" Divider */}
+              <div className="relative my-8 text-center">
+                <div className="absolute inset-0 flex items-center">
+                  <div className="w-full border-t border-gray-100" />
+                </div>
+                <span className="relative bg-white px-4 text-xs font-medium text-gray-400">
+                  or
+                </span>
+              </div>
+
+              {/* Social Login Buttons */}
+              <div className="flex justify-center items-center gap-4">
+                {/* Facebook Button */}
+                <button
+                  type="button"
+                  className="flex h-12 w-12 items-center justify-center rounded-full border border-gray-200 text-black hover:bg-gray-50 transition"
+                  aria-label="Sign in with Facebook"
+                >
+                  <svg className="h-5 w-5 fill-current" viewBox="0 0 24 24">
+                    <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                  </svg>
+                </button>
+
+                {/* Google Button */}
+                <button
+                  type="button"
+                  className="flex h-12 w-12 items-center justify-center rounded-full border border-gray-200 text-black hover:bg-gray-50 transition"
+                  aria-label="Sign in with Google"
+                >
+                  <span className="text-xl font-bold font-sans">G</span>
+                </button>
+              </div>
+
+              {/* Create Account Link */}
+              <p className="mt-12 text-center text-xs text-gray-500 font-medium">
+                New user?{" "}
+                <Link
+                  href="/register"
+                  className="text-blue-600 hover:underline"
+                >
+                  Create an account
                 </Link>
               </p>
             </div>
